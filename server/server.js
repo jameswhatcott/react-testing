@@ -1,27 +1,11 @@
-// Import node-fetch
-import fetch from 'node-fetch';
+const express = require('express');
+const app = express();
+const path = require('path');
+const port = 3000;
 
-// Function to fetch Pokemon data
-function fetchPokemonData(pokemonName) {
-    const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, 'public')));
 
-    // Fetch Pokemon data
-    fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Log the data to the console (server-side)
-            console.log(data);
-        })
-        .catch(error => {
-            // Log error to console (server-side)
-            console.error("Error fetching Pokemon data:", error.message);
-        });
-}
-
-// Fetch data for a specific Pokemon
-fetchPokemonData('pikachu');
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
