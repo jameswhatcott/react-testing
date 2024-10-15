@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Body({ data }) {
+function Body({ data, loading }) {
     const playCry = () => {
         if (data) {
           const audio = new Audio(data.cries.latest);
@@ -10,6 +10,9 @@ function Body({ data }) {
 
       const capitalizedPokemonName = data ? data.name.charAt(0).toUpperCase() + data.name.slice(1) : '';
 
+      if (loading) {
+        return <div>Loading...</div>;
+      }
 
       return data ? (
         <div>
