@@ -8,11 +8,16 @@ function Body({ data }) {
         }
       };
 
+      const capitalizedPokemonName = data ? data.name.charAt(0).toUpperCase() + data.name.slice(1) : '';
+
+
       return data ? (
         <div>
-          <h1>{data.name}</h1>
+          <h1>{capitalizedPokemonName}</h1>
           {data.sprites && <img src={data.sprites.front_default} alt={data.name} />}
-          <button onClick={playCry}>Play Cry</button>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <button className="playCry" onClick={playCry}>Play Cry</button>
+          </div>       
         </div>
       ) : null;
     }

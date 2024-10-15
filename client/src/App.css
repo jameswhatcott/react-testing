@@ -5,3 +5,50 @@
     /* justify-content: center; */
     height: 100vh; /* This makes the div take up the full height of the viewport */
   }
+  
+  li {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #f6f6f7; /* Change this to your preferred button color */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  li:hover {
+    background-color: #45a049; /* Change this to your preferred hover color */
+  }
+
+  .playCry {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+    background-color: red;
+    color: white;
+    border-radius: 50%; /* This makes the button circular */
+    border: none;
+    font-size: 16px; /* Adjust as needed */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px; /* Adjust as needed */
+  }
+  
+  .playCry:hover {
+    background-color: darkred; /* Change this to your preferred hover color */
+  }
+
+  body {
+    background-color: rgb(240, 237, 237); /* Replace with your preferred color */
+  }
+
+  img {
+    margin-left: 10px;
+  }

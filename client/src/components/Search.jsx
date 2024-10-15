@@ -7,15 +7,16 @@ function Search({ setSearchTerm }) {
     setInputValue(event.target.value);
   };
 
-  const handleClick = () => {
-    setSearchTerm(inputValue);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setSearchTerm(inputValue.toLowerCase());
   };
 
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
       <input type="text" value={inputValue} onChange={handleChange} />
-      <button onClick={handleClick}>Search</button>
-    </div>
+      <button type="submit">Search</button>
+    </form>
   );
 }
 

@@ -19,6 +19,7 @@ function ParentComponent() {
 
   return (
     <div className="parent-component">
+        <h1>Welcome to the Pokedex!</h1>
       <Search setSearchTerm={setSearchTerm} />
       <Body data={data} />
     </div>
