@@ -1,14 +1,13 @@
 import React from "react";
 import Nav from "./components/Nav.jsx";
-import Body from "./components/Body.jsx";
-import Search from "./components/Search.jsx";
+import Parent from "./components/Parent.jsx";
+import "./App.css";
 
 function App() {
     return (
         <div>
             <Nav />
-            <Search />
-            <Body />
+            <Parent />
         </div>
     );
 }
