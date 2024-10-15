@@ -3,11 +3,18 @@ import React, { useEffect, useState } from 'react';
 const Body = () => {
     const [data, setData] = useState([]);
 
+    const capitalizeFirstLetter = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      }
+
     useEffect(() => {
-        fetch('https://pokeapi.co/api/v2/pokemon/pikachu')
+        fetch('https://pokeapi.co/api/v2/pokemon/blastoise')
             .then(response => response.json())
-            .then(data => setData(data));
-    }, []);
+            .then(data => {
+                data.name = capitalizeFirstLetter(data.name);
+                setData(data);
+              });
+          }, []);
 
     useEffect(() => {
         if (data) {
@@ -19,15 +26,8 @@ const Body = () => {
     return (
         <div style={{ textAlign: 'center', padding: '20px' }}>
             <h1 style={{ color: 'blue' }}>Welcome to the Pokedex!</h1>
-           {/* Pokemon title */}
             <h2>{data.name}</h2>
-            {/* Pokemon image */}
-            <img src={data.sprites?.front_default} alt={data.name} />
-            {/* Pokemon cry */}
-            <audio controls>
-                <source src={data.cries?.cry} type="audio/mpeg" />
-
-
+            <img src={data.sprites.front_default} alt={data.name} />
         </div>
     )
 };
